@@ -16,7 +16,7 @@ const reducer = (state, action) => {
     case 'bad':
       return { ...state, bad: state.bad + 1 };
     default:
-      return new Error(`Undefinet type: ${action.type}`);
+      return new Error(`Undefined type: ${action.type}`);
   }
 };
 
@@ -40,18 +40,18 @@ const totalFeedback = countTotalFeedback();
 const positivePercentage = countPositiveFeedbackPercentage();
 
 return (
-  <div>
-    <Section title="Please leave your feedback">
-      <FeedbackOptions options={Object.keys(feedback)} onLeaveFeedback={handleFeedback} />
-    </Section>
+        <div>
+          <Section title="Please leave your feedback">
+            <FeedbackOptions options={Object.keys(feedback)} onLeaveFeedback={handleFeedback} />
+          </Section>
 
-  {totalFeedback > 0 ? (
-    <Section title="Statistics">
-      <Statistics good={feedback.good} neutral={feedback.neutral} bad={feedback.bad} total={totalFeedback} positivePercentage={positivePercentage} />
-    </Section>
-  ) : (
-    <Notification message="There is no feedback" />
-  )}
-</div>
-); 
+        {totalFeedback > 0 ? (
+          <Section title="Statistics">
+            <Statistics good={feedback.good} neutral={feedback.neutral} bad={feedback.bad} total={totalFeedback} positivePercentage={positivePercentage} />
+          </Section>
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
+       </div>
+      ); 
 };
